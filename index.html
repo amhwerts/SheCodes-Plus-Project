@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="src/style.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card" id="weatherApp">
+            <form>
+                <div class="row">
+                    <div class="col-6">
+                        <form class="findCity"><input type="search" id="search-text-input"
+                                placeholder="search city or zip code" />
+                    </div>
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-success">Search</button>
+                    </div>
+            </form>
+            <div class="col-4">
+                <button type="currentLocation" class="btn btn-primary" id="current-location-button">Current
+                    Location</button>
+            </div>
+        </div>
+        </form>
+        <div class="row">
+            <div class="col-8">
+                <h2>Weather in Lubbock, TX</h2>
+                <small>as of <span id="time">4:42pm CST</span></small>
+            </div>
+            <div class="col-4" id="currentTemp">
+                <h1><span id="temperature">26</span><span class="units">°<a href="#" id="celsius-link">C</a> | <a
+                            href="#" id="fahrenheit-link">F</a></span> ☀</h1>
+            </div>
+        </div>
+        <hr />
+        <h3>5-Day Forecast</h3>
+        <div class="card" id="fiveDay">
+            <div class="row">
+                <div class="col-3">Today</div>
+                <div class="col-3" id="icon">☀</div>
+                <div class="col-3" id="highTemp">H: 82°F</div>
+                <div class="col-3" id="lowTemp">L: 52°F</div>
+            </div>
+        </div>
+        <div class="card" id="fiveDay">
+            <div class="row">
+                <div class="col-3">Monday, 21st</div>
+                <div class="col-3" id="icon">☀</div>
+                <div class="col-3" id="highTemp">H: 80°F</div>
+                <div class="col-3" id="lowTemp">L: 53°F</div>
+            </div>
+        </div>
+        <div class="card" id="fiveDay">
+            <div class="row">
+                <div class="col-3">Tuesday, 22nd</div>
+                <div class="col-3" id="icon">☀</div>
+                <div class="col-3" id="highTemp">H: 83°F</div>
+                <div class="col-3" id="lowTemp">L: 56°F</div>
+            </div>
+        </div>
+        <div class="card" id="fiveDay">
+            <div class="row">
+                <div class="col-3">Wednesday, 23rd</div>
+                <div class="col-3" id="icon">🌤</div>
+                <div class="col-3" id="highTemp">H: 84°F</div>
+                <div class="col-3" id="lowTemp">L: 57°F</div>
+            </div>
+        </div>
+        <div class="card" id="fiveDay">
+            <div class="row">
+                <div class="col-3">Thursday, 24th</div>
+                <div class="col-3" id="icon">☀</div>
+                <div class="col-3" id="highTemp">H: 87°F</div>
+                <div class="col-3" id="lowTemp">L: 60°F</div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="src/index.js"></script>
+</body>
+
+</html>

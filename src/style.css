@@ -1,0 +1,20 @@
+h3 {
+  color: navy;
+}
+
+#weatherApp {
+  border-color: red;
+  border-width: 3px;
+}
+#searchBar {
+  display: inline-block;
+  width: 100%;
+}
+.icon {
+  text-align: center;
+}
+#fiveDay {
+  border-color: darkgray;
+  border-width: 2.5px;
+  color: navy;
+}

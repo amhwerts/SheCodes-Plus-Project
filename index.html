@@ -18,7 +18,7 @@
                 <div class="row">
                     <div class="col-6">
                         <form class="findCity"><input type="search" id="search-text-input"
-                                placeholder="search city or zip code" />
+                                placeholder="search city" />
                     </div>
                     <div class="col-2">
                         <button type="submit" class="btn btn-success">Search</button>
@@ -32,54 +32,59 @@
         </form>
         <div class="row">
             <div class="col-8">
-                <h2>Weather in Lubbock, TX</h2>
-                <small>as of <span id="time">4:42pm CST</span></small>
+                <h2>Current Weather in Lubbock, TX</h2>
+                <h4 id=descriptionWeather></h4>                        
+                <ul>
+                                            <li>Humidity: <span id="humidity">0</span>%</li>
+                                            <li>Windspeed: <span id="windSpeed">15</span> mph</li>
+                                        </ul>
             </div>
             <div class="col-4" id="currentTemp">
                 <h1><span id="temperature">26</span><span class="units">°<a href="#" id="celsius-link">C</a> | <a
-                            href="#" id="fahrenheit-link">F</a></span> ☀</h1>
+                            href="#" id="fahrenheit-link">F</a> </span><span id="currentIcon">☀</span></h1>
+                    <small id="time">Sunday, 4:42pm</small>
             </div>
         </div>
         <hr />
         <h3>5-Day Forecast</h3>
         <div class="card" id="fiveDay">
             <div class="row">
-                <div class="col-3">Today</div>
-                <div class="col-3" id="icon">☀</div>
-                <div class="col-3" id="highTemp">H: 82°F</div>
-                <div class="col-3" id="lowTemp">L: 52°F</div>
+                <div class="col-3" id="dayOne">Today</div>
+                <div class="col-3" id="iconOne">☀</div>
+                <div class="col-3" id="highTempOne">H: 82°F</div>
+                <div class="col-3" id="lowTempOne">L: 52°F</div>
             </div>
         </div>
         <div class="card" id="fiveDay">
             <div class="row">
-                <div class="col-3">Monday, 21st</div>
-                <div class="col-3" id="icon">☀</div>
-                <div class="col-3" id="highTemp">H: 80°F</div>
-                <div class="col-3" id="lowTemp">L: 53°F</div>
+                <div class="col-3" id="dayTwo">Monday, 21st</div>
+                <div class="col-3" id="iconTwo">☀</div>
+                <div class="col-3" id="highTempTwo">H: 80°F</div>
+                <div class="col-3" id="lowTempTwo">L: 53°F</div>
             </div>
         </div>
         <div class="card" id="fiveDay">
             <div class="row">
-                <div class="col-3">Tuesday, 22nd</div>
-                <div class="col-3" id="icon">☀</div>
-                <div class="col-3" id="highTemp">H: 83°F</div>
-                <div class="col-3" id="lowTemp">L: 56°F</div>
+                <div class="col-3" id="dayThree">Tuesday, 22nd</div>
+                <div class="col-3" id="iconThree">☀</div>
+                <div class="col-3" id="highTempThree">H: 83°F</div>
+                <div class="col-3" id="lowTempThree">L: 56°F</div>
             </div>
         </div>
         <div class="card" id="fiveDay">
             <div class="row">
-                <div class="col-3">Wednesday, 23rd</div>
-                <div class="col-3" id="icon">🌤</div>
-                <div class="col-3" id="highTemp">H: 84°F</div>
-                <div class="col-3" id="lowTemp">L: 57°F</div>
+                <div class="col-3" id="dayFour">Wednesday, 23rd</div>
+                <div class="col-3" id="iconFour">🌤</div>
+                <div class="col-3" id="highTempFour">H: 84°F</div>
+                <div class="col-3" id="lowTempFour">L: 57°F</div>
             </div>
         </div>
         <div class="card" id="fiveDay">
             <div class="row">
-                <div class="col-3">Thursday, 24th</div>
-                <div class="col-3" id="icon">☀</div>
-                <div class="col-3" id="highTemp">H: 87°F</div>
-                <div class="col-3" id="lowTemp">L: 60°F</div>
+                <div class="col-3" id="dayFive">Thursday, 24th</div>
+                <div class="col-3" id="iconFive">☀</div>
+                <div class="col-3" id="highTempFive">H: 87°F</div>
+                <div class="col-3" id="lowTempFive">L: 60°F</div>
             </div>
         </div>
     </div>

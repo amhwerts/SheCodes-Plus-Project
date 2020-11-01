@@ -10,10 +10,10 @@ h3 {
   display: inline-block;
   width: 100%;
 }
-.icon {
+.currentIcon {
   text-align: center;
 }
-#fiveDay {
+div #forecastRow {
   border-color: darkgray;
   border-width: 2.5px;
   color: navy;

@@ -8,6 +8,9 @@
             let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=${units}`;
 
             axios.get(apiUrl).then(showTemperature);
+
+            apiUrl=`https://api.openweathermap.org/data/2.5/forecast?q=${cityInput.value}&appid=${apiKey}&units=${units}`;
+            axios.get(apiUrl).then(displayForecast)
         }
 function formatDate(timestamp){
 let date=new Date(timestamp);
@@ -21,12 +24,8 @@ let days = [
   "Saturday"
 ];
 let currentDay = days[date.getDay()];
-let hours=date.getHours();
-let minutes=date.getMinutes();
-if (minutes < 10) {
-  minutes = `0${minutes}`;
-}
-return `as of ${currentDay}, ${hours}:${minutes}`;
+
+return `as of ${currentDay}, ${formatHours(timestamp)}`;
 }
         function showTemperature(response) {
             console.log(response.data);
@@ -48,6 +47,34 @@ return `as of ${currentDay}, ${hours}:${minutes}`;
 iconElement.setAttribute("alt", response.data.weather[0].description);
         }
 
+function formatHours(timestamp){
+    let date=new Date(timestamp);
+let hours=date.getHours();
+let minutes=date.getMinutes();
+if (minutes < 10) {
+  minutes = `0${minutes}`;}
+    return `${hours}:${minutes}`;
+}
+
+function displayForecast(response){
+let forecastElement=document.querySelector("#hourlyForecast");
+forecastElement.innerHTML=null;
+let forecast=null;
+for(let index=0; index<5; index++){
+    forecast=response.data.list[index];
+forecastElement.innerHTML+=`
+<div class="card" id="forecastRow">
+<div class="row">
+                <div class="col-3">${formatHours(forecast.dt*1000)}</div>
+                <div><img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png" class="col-5" id="icon"></div>
+                <div class="col-3" id="highTempOne">H: ${Math.round(forecast.main.temp_max)}°F</div>
+                <div class="col-3" id="lowTempOne">L: ${Math.round(forecast.main.temp_min)}°F</div>
+            </div>
+            </div>`
+}
+        }
+
+
         function showPosition(position) {
                 console.log(position);
                 let lat = position.coords.latitude;
@@ -59,6 +86,9 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
                 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
 
                 axios.get(apiUrl).then(showTemperature);
+               
+                apiUrl=`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&units=${units}&appid=${apiKey}`;
+            axios.get(apiUrl).then(displayForecast)
 
             }
         function getCurrentPosition(){

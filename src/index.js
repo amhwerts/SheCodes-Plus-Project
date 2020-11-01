@@ -38,6 +38,7 @@ return `as of ${currentDay}, ${hours}:${minutes}`;
             let temperatureElement = document.querySelector("#temperature");
             let timeElement=document.querySelector("#time");
             let iconElement=document.querySelector("#currentIcon");
+            fahrenheitTemperature=response.data.main.temp;
             temperatureElement.innerHTML = `${temperature}`;
             descriptionElement.innerHTML = response.data.weather[0].description;
             humidityElement.innerHTML = response.data.main.humidity;
@@ -69,21 +70,24 @@ iconElement.setAttribute("alt", response.data.weather[0].description);
         let currentLocationButton =document.querySelector("#current-location-button");
         currentLocationButton.addEventListener("click", getCurrentPosition);
         
-        let currentTime = new Date();
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
-];
-let currentDay = days[timestamp.getDay()];
-let currentHour = currentTime.getHours();
-let currentMinute = currentTime.getMinutes();
-if (currentMinute < 10) {
-  currentMinute = `0${currentMinute}`;
+function showCelsiusTemperature(event){
+    event.preventDefault();
+    let temperatureElement=document.querySelector("#temperature");
+    let celsiusTemperature=(fahrenheitTemperature - 32) * 5/9;
+    temperatureElement.innerHTML=Math.round(celsiusTemperature);
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
+
 }
-let date = document.querySelector("#time");
-date.innerHTML = `${currentDay} ${currentHour}:${currentMinute}`;
+function showfahrenheitTemperature(event){
+    event.preventDefault();
+        let temperatureElement=document.querySelector("#temperature");
+    temperatureElement.innerHTML=Math.round(fahrenheitTemperature);
+        fahrenheitLink.classList.add("active");
+        celsiusLink.classList.remove("active");
+}
+let fahrenheitTemperature=null;
+let celsiusLink=document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemperature);
+let fahrenheitLink=document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showfahrenheitTemperature);

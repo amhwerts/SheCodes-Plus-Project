@@ -21,3 +21,11 @@ h3 {
 #descriptionWeather:first-letter {
   text-transform: uppercase;
 }
+.active {
+  color: black;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: black;
+}
